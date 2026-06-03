@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro & Sustentabilidade - Simulador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header inspirado no AgricOnline -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">AGRO <span>FORTE</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre o Projeto</a></li>
+                    <li><a href="#">Dados Reais</a></li>
+                    <li><a href="#" class="btn-contato">Falar no Whats</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h1>Simulador de Impacto: Desenvolvimento e Sustentabilidade</h1>
+            <p>Clique nos ícones abaixo para ver como cada ação transforma a paisagem do nosso campo.</p>
+        </section>
+
+        <!-- Grid de Ícones inspirado no MapBiomas -->
+        <section class="icon-grid">
+            <div class="icon-card" onclick="mudarCenario('mineracao', 'Mineração Industrial e Garimpo')">
+                <div class="icon-img icon-mineracao"></div>
+                <span>MINERAÇÃO</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('desmatamento', 'Supressão de Vegetação Nativa')">
+                <div class="icon-img icon-desmatamento"></div>
+                <span>DESMATAMENTO</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('queimada', 'Cicatrizes de Fogo e Queimadas')">
+                <div class="icon-img icon-queimada"></div>
+                <span>QUEIMADA</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('reflorestamento', 'Plantio de Mudas e Recuperação')">
+                <div class="icon-img icon-reflorestamento"></div>
+                <span>REFLORESTAMENTO</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('rocheiras', 'Afloramentos Rochosos Naturais')">
+                <div class="icon-img icon-rocheiras"></div>
+                <span>ROCHEIRAS</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('biocombustiveis', 'Energia Limpa e Renovável')">
+                <div class="icon-img icon-biocombustiveis"></div>
+                <span>BIOCOMBUSTÍVEIS</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('mata-ciliar', 'Proteção de Margens e Rios')">
+                <div class="icon-img icon-mata-ciliar"></div>
+                <span>MATA CILIAR</span>
+            </div>
+            <div class="icon-card" onclick="mudarCenario('regeneracao', 'Crescimento de Vegetação Secundária')">
+                <div class="icon-img icon-regeneracao"></div>
+                <span>REGENERAÇÃO</span>
+            </div>
+        </section>
+
+        <!-- Área do Cenário -->
+        <section class="cenario-display">
+            <h2 id="titulo-cenario">Cenário: Paisagem Natural</h2>
+            <div class="image-wrapper">
+                <img id="imagem-principal" src="imagens/base-natural.jpg" alt="Paisagem Natural">
+            </div>
+            <p id="descricao-cenario">Esta é a base do nosso ecossistema. Selecione uma ação para ver o equilíbrio entre o agro e a preservação.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Agro Forte - Trabalho Escolar baseado em AgricOnline e MapBiomas.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
