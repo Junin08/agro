@@ -1,19 +1,20 @@
 :root {
     --verde-agro: #28a745;
     --dark-header: #1a1a1a;
-    --texto-cor: #333;
-    --bg-light: #f4f7f6;
+    --texto: #333;
+    --fundo: #f8f9fa;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: var(--bg-light);
-    color: var(--texto-cor);
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -21,7 +22,7 @@ body {
 header {
     background-color: var(--dark-header);
     color: white;
-    padding: 15px 0;
+    padding: 20px 0;
 }
 
 .header-flex {
@@ -31,7 +32,7 @@ header {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -42,82 +43,143 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    margin: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-.btn-contato {
-    background-color: var(--verde-agro);
-    padding: 8px 15px;
-    border-radius: 5px;
+nav a:hover {
+    color: var(--verde-agro);
 }
 
 .intro {
     text-align: center;
-    margin-top: 30px;
+    margin: 40px 0;
 }
 
-/* Grid de Ícones (MapBiomas Style) */
+/* Estilo MapBiomas para a Grade de Ícones */
 .icon-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 15px;
-    margin: 40px 0;
+    margin-bottom: 50px;
 }
 
 .icon-card {
     background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 15px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
 }
 
 .icon-card:hover {
-    transform: translateY(-5px);
-    border: 2px solid var(--verde-agro);
+    border-color: var(--verde-agro);
+    transform: scale(1.05);
 }
 
-.icon-img {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 10px;
-    background-size: contain;
-    background-repeat: no-repeat;
+.icon-img img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
 }
 
-/* Classes para os ícones baseados nas suas descrições */
-.icon-mineracao { background-image: url('icones/picareta.png'); }
-.icon-desmatamento { background-image: url('icones/motosserra.png'); }
-.icon-queimada { background-image: url('icones/chamas.png'); }
-.icon-reflorestamento { background-image: url('icones/muda.png'); }
-/* Adicione as demais imagens de ícone aqui */
+.icon-card span {
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    color: #555;
+}
 
+/* Área da Imagem do Cenário */
 .cenario-display {
-    text-align: center;
     background: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.image-wrapper {
+    margin: 25px 0;
+    border: 8px solid #eee;
+    border-radius: 4px;
 }
 
 .image-wrapper img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    border: 5px solid #ddd;
+    display: block;
 }
 
 footer {
+    background-color: var(--dark-header);
+    color: #ccc;
     text-align: center;
-    padding: 20px;
-    background: var(--dark-header);
-    color: white;
-    margin-top: 50px;
+    padding: 30px 0;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+3. JavaScript (script.js)
+// Função para exibir o contato solicitado
+function exibirContato() {
+    alert("Para contato, envie um e-mail para: junior.roberto04@escola.pr.gov.br");
+}
+
+// Função para mudar o cenário e os placeholders de imagem
+function mudarCenario(acao, titulo) {
+    const imagemPrincipal = document.getElementById('imagem-principal');
+    const tituloCenario = document.getElementById('titulo-cenario');
+    const descricaoCenario = document.getElementById('descricao-cenario');
+
+    tituloCenario.innerText = "Cenário: " + titulo;
+
+    switch(acao) {
+        case 'mineracao':
+            imagemPrincipal.src = "url(IMG/mineração.png)";
+            descricaoCenario.innerText = "Impacto visual da extração mineral no terreno.";
+            break;
+        case 'desmatamento':
+            imagemPrincipal.src = "url(IMG/desmatamento.png)";
+            descricaoCenario.innerText = "Representação da supressão da vegetação nativa.";
+            break;
+        case 'queimada':
+            imagemPrincipal.src = "url(IMG/Queimada.png)";
+            descricaoCenario.innerText = "Visualização de áreas afetadas por incêndios e calor.";
+            break;
+        case 'reflorestamento':
+            imagemPrincipal.src = "url(IMG/reflorestamento.png)";
+            descricaoCenario.innerText = "Plantio planejado para recuperação da biodiversidade.";
+            break;
+        case 'rocheiras':
+            imagemPrincipal.src = "url(IMG/rocheiras.png)";
+            descricaoCenario.innerText = "Afloramentos rochosos naturais preservados.";
+            break;
+        case 'biocombustiveis':
+            imagemPrincipal.src = "url(IMG/biocombustivel.png)";
+            descricaoCenario.innerText = "Culturas voltadas para produção de energia renovável.";
+            break;
+        case 'mata-ciliar':
+            imagemPrincipal.src = "url(IMG/Mata ciliar.png)";
+            descricaoCenario.innerText = "Proteção das margens dos rios e corpos hídricos.";
+            break;
+        case 'regeneracao':
+            imagemPrincipal.src = "url(IMG/regeneração.png)";
+            descricaoCenario.innerText = "Crescimento natural da vegetação em áreas protegidas.";
+            break;
+        default:
+            imagemPrincipal.src = "url(IMG/paisagem inicial.png)";
+            descricaoCenario.innerText = "Selecione uma ação para visualizar.";
+    }
 }
