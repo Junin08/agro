@@ -1,9 +1,9 @@
-/* --- CONFIGURAÇÕES GERAIS (Inspirado no estilo AgricOnline) --- */
+/* --- CONFIGURAÇÕES GERAIS (Estilo AgricOnline) --- */
 :root {
-    --verde-agro: #28a745; /* Verde técnico do setor */
-    --dark-bg: #1a1a1a;    /* Fundo escuro para contraste profissional */
-    --texto: #333;         /* Cor padrão para leitura clara [2] */
-    --cinza-claro: #f4f7f6; /* Fundo suave para os cards */
+    --verde-agro: #28a745;
+    --dark-bg: #1a1a1a;
+    --texto: #333;
+    --cinza-claro: #f4f7f6;
 }
 
 body {
@@ -15,12 +15,12 @@ body {
 }
 
 .container {
-    max-width: 1200px; /* Ampliado para caber os botões maiores */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* --- HEADER (Navegação Simplificada) --- */
+/* --- HEADER --- */
 header {
     background-color: var(--dark-bg);
     color: white;
@@ -36,7 +36,6 @@ header {
 .logo {
     font-size: 26px;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .logo span {
@@ -54,39 +53,22 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s;
 }
 
-nav a:hover {
-    color: var(--verde-agro);
-}
-
-/* --- INTRODUÇÃO --- */
-.intro {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.intro h1 {
-    font-size: 2.5rem;
-    color: var(--dark-bg);
-    margin-bottom: 10px;
-}
-
-/* --- GRID DE ÍCONES (Estilo MapBiomas - Ampliado) --- */
-/* Aumentamos a largura mínima das colunas para 180px para os botões maiores [4, 5] */
+/* --- GRID DE ÍCONES (Agora com Flexbox para Centralizar) --- */
 .icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    display: flex;      /* Mudança para Flexbox */
+    flex-wrap: wrap;    /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center; /* CENTRALIZA os itens na linha de baixo */
     gap: 25px; 
     margin: 40px 0;
 }
 
-/* Quadrado do ícone com mais espaço (padding) e destaque */
+/* Quadrado do ícone ampliado e centralizado */
 .icon-card {
     background: white;
-    padding: 45px 20px; /* Aumentado para o quadrado ficar maior */
+    padding: 40px 20px;
+    width: 220px; /* Largura fixa para manter o padrão maior */
     text-align: center;
     border-radius: 15px;
     border: 2px solid #ddd;
@@ -95,7 +77,6 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .icon-card:hover {
@@ -104,7 +85,7 @@ nav a:hover {
     transform: translateY(-8px);
 }
 
-/* Tamanho do Ícone: Ampliado para 90px para maior impacto visual */
+/* Tamanho do Ícone Ampliado */
 .icon-img img {
     width: 90px; 
     height: 90px;
@@ -112,30 +93,21 @@ nav a:hover {
     object-fit: contain;
 }
 
-/* Texto das Categorias (Ex: Desmatamento, Mineração) [3, 5] */
+/* Texto das Categorias */
 .icon-card span {
     font-size: 0.85rem;
     font-weight: 800;
     color: #444;
-    display: block;
-    line-height: 1.2;
     text-transform: uppercase;
 }
 
-/* --- EXIBIÇÃO DA PAISAGEM (Simulador) --- */
+/* --- EXIBIÇÃO DA PAISAGEM --- */
 .cenario-display {
     background: white;
     padding: 40px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    margin-top: 20px;
-}
-
-.cenario-display h2 {
-    color: var(--dark-bg);
-    margin-bottom: 25px;
-    font-size: 1.8rem;
 }
 
 .image-wrapper {
@@ -149,24 +121,15 @@ nav a:hover {
     max-width: 100%;
     height: auto;
     display: block;
-    transition: opacity 0.5s ease; /* Transição suave entre imagens */
 }
 
-#descricao-cenario {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 800px;
-    margin: 20px auto 0;
-}
-
-/* --- RODAPÉ (Créditos e Contato) --- */
+/* --- RODAPÉ --- */
 footer {
     background-color: var(--dark-bg);
     color: #afafaf;
     text-align: center;
     padding: 40px 0;
     margin-top: 60px;
-    font-size: 0.95rem;
     border-top: 4px solid var(--verde-agro);
 }
 
